@@ -1,18 +1,18 @@
 import './App.css';
 import {Navbar, NavbarBrand} from "reactstrap";
+import Menu from "./components/MenuComponent";
 
 function App() {
-  return (
-    <div className="App">
-      <Navbar dark color="primary">
-        <div className="container">
-          <NavbarBrand href="/">
-            Limsa Lominsa
-          </NavbarBrand>
+    return (
+        <div>
+            <Navbar dark color="primary">
+                <div className="container">
+                    <NavbarBrand href="/">Ristorante Confusion</NavbarBrand>
+                </div>
+            </Navbar>
+            <Menu/>
         </div>
-      </Navbar>
-    </div>
-  );
+    );
 }
 
 export default App;
