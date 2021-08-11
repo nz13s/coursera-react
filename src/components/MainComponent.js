@@ -1,8 +1,16 @@
 import {Navbar, NavbarBrand} from "reactstrap";
+import Menu from "./MenuComponent";
+import {DISHES} from "../shared/dishes";
 import {Component} from "react";
-import Main from "./components/MainComponent";
 
-class App extends Component {
+class Main extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dishes: DISHES,
+            selectedDish: null
+        }
+    }
     render() {
         return (
             <div>
@@ -11,10 +19,10 @@ class App extends Component {
                         <NavbarBrand href="/">Ristorante Confusion</NavbarBrand>
                     </div>
                 </Navbar>
-                <Main/>
+                <Menu dishes={this.state.dishes}/>
             </div>
         );
     }
 }
 
-export default App;
+export default Main;
