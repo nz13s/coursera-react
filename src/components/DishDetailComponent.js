@@ -2,11 +2,7 @@ import {Component} from "react";
 import {Card, CardBody, CardImg, CardText, CardTitle} from "reactstrap";
 
 class DishDetail extends Component {
-    constructor(props) {
-        super(props);
-    }
     render(dish) {
-
         if (dish != null) {
             return (
                     <div className="row">
@@ -24,14 +20,13 @@ class DishDetail extends Component {
                                     {dish.comments.map((element) => {
                                         const dateString = element.date;
                                         const dateObj = new Date(dateString);
-                                        const newDate = `${dateObj.toLocaleString('en', {month: 'short'})}
-                                         ${dateObj.getDay()}, ${dateObj.getFullYear()}`;
+                                        const newDate =
+                                            `${dateObj.toLocaleString('en', {month: 'short'})} 
+                                            ${dateObj.getDay()}, ${dateObj.getFullYear()}`;
                                         return (
                                             <div>
                                                 <p>{element.comment}</p>
-                                                <p>
-                                                    -- {element.author}, {newDate}
-                                                </p>
+                                                <p>-- {element.author}, {newDate}</p>
                                             </div>
                                         )
                                     })}

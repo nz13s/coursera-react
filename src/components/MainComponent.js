@@ -2,6 +2,7 @@ import {Navbar, NavbarBrand} from "reactstrap";
 import Menu from "./MenuComponent";
 import {DISHES} from "../shared/dishes";
 import {Component} from "react";
+import DishDetail from "./DishDetailComponent";
 
 class Main extends Component {
     constructor(props) {
@@ -11,7 +12,13 @@ class Main extends Component {
             selectedDish: null
         }
     }
+
+    onDishSelect(dish) {
+        this.setState({selectedDish: dish});
+    }
+
     render() {
+        const dish_detail = new DishDetail(undefined);
         return (
             <div>
                 <Navbar dark color="primary">
@@ -19,7 +26,10 @@ class Main extends Component {
                         <NavbarBrand href="/">Ristorante Confusion</NavbarBrand>
                     </div>
                 </Navbar>
-                <Menu dishes={this.state.dishes}/>
+                <Menu dishes={this.state.dishes} onClick={(dish) => this.onDishSelect(dish)}/>
+                <div className="container">
+                    {dish_detail.render(this.state.selectedDish)}
+                </div>
             </div>
         );
     }
