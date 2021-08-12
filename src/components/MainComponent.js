@@ -18,7 +18,6 @@ class Main extends Component {
     }
 
     render() {
-        const dish_detail = new DishDetail(undefined);
         return (
             <div>
                 <Navbar dark color="primary">
@@ -27,9 +26,7 @@ class Main extends Component {
                     </div>
                 </Navbar>
                 <Menu dishes={this.state.dishes} onClick={(dish) => this.onDishSelect(dish)}/>
-                <div className="container">
-                    {dish_detail.render(this.state.selectedDish)}
-                </div>
+                <DishDetail dish={this.state.selectedDish}/>
             </div>
         );
     }
