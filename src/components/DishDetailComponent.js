@@ -38,7 +38,7 @@ function RenderDishComments({dish}) {
 }
 
 const DishDetail = (props) => {
-    if (props.dish != null) {
+    if (props.dish !== null) {
         return (
             <div className="container">
                 <div className="row">
