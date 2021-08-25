@@ -28,9 +28,8 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values) {
-        console.log("Current states is:" + JSON.stringify(values));
-        alert("Current states is:" + JSON.stringify(values));
         this.toggleModal();
+        this.props.addComment(this.props.dishId, values.rating, values.name, values.comment);
     }
 
     render() {
@@ -119,30 +118,34 @@ function RenderDishDetail({dish}) {
     )
 }
 
-function RenderDishComments({comments}) {
-    return (
-        <Card className="col-12 col-md-5 m-1">
-            <CardBody>
-                <CardTitle heading>Comments</CardTitle>
-                <CardText>
-                    {comments.map((element) => {
-                        const dateString = element.date;
-                        const dateObj = new Date(dateString);
-                        const newDate =
-                            `${dateObj.toLocaleString('en', {month: 'short'})} 
-                                            ${dateObj.getDay()}, ${dateObj.getFullYear()}`;
-                        return (
-                            <div>
-                                <p>{element.comment}</p>
-                                <p>-- {element.author}, {newDate}</p>
-                            </div>
-                        )
-                    })}
-                </CardText>
-                <CommentForm/>
-            </CardBody>
-        </Card>
-    )
+function RenderDishComments({comments, addComment, dishId}) {
+    if (comments != null) {
+        return (
+            <Card className="col-12 col-md-5 m-1">
+                <CardBody>
+                    <CardTitle heading>Comments</CardTitle>
+                    <CardText>
+                        {comments.map((element) => {
+                            const dateString = element.date;
+                            const dateObj = new Date(dateString);
+                            const newDate =
+                                `${dateObj.toLocaleString('en', {month: 'short'})} 
+                                                ${dateObj.getDay()}, ${dateObj.getFullYear()}`;
+                            return (
+                                <div>
+                                    <p>{element.comment}</p>
+                                    <p>-- {element.author}, {newDate}</p>
+                                </div>
+                            )
+                        })}
+                    </CardText>
+                    <CommentForm dishId={dishId} addComment={addComment}/>
+                </CardBody>
+            </Card>
+        )
+    } else {
+        return (<div/>)
+    }
 }
 
 const DishDetail = (props) => {
@@ -163,7 +166,10 @@ const DishDetail = (props) => {
                 </div>
                 <div className="row">
                     <RenderDishDetail dish={props.dish}/>
-                    <RenderDishComments comments={props.comments}/>
+                    <RenderDishComments comments={props.comments}
+                                        addComment={props.addComment}
+                                        dishId={props.dish.id}
+                    />
                 </div>
             </div>
         )
