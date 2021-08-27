@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import React, {Component} from "react";
 import {Control, Errors, LocalForm} from "react-redux-form";
 import {Loading} from "./LoadingComponent";
+import {baseURL} from "../shared/baseURL";
 
 const required = (val) => val && val.length;
 const validRating = (val) => val !== "";
@@ -110,7 +111,7 @@ class CommentForm extends Component {
 function RenderDishDetail({dish}) {
     return (
         <Card className="col-12 col-md-5 m-1">
-            <CardImg width="100%" object src={dish.image} alt={dish.name}/>
+            <CardImg width="100%" object src={baseURL + dish.image} alt={dish.name}/>
             <CardBody>
                 <CardTitle heading>{dish.name}</CardTitle>
                 <CardText>{dish.description}</CardText>
