@@ -7,6 +7,7 @@ import React, {Component} from "react";
 import {Control, Errors, LocalForm} from "react-redux-form";
 import {Loading} from "./LoadingComponent";
 import {baseURL} from "../shared/baseURL";
+import {FadeTransform, Fade, Stagger} from 'react-animation-components';
 
 const required = (val) => val && val.length;
 const validRating = (val) => val !== "";
@@ -111,11 +112,13 @@ class CommentForm extends Component {
 function RenderDishDetail({dish}) {
     return (
         <Card className="col-12 col-md-5 m-1">
-            <CardImg width="100%" object src={baseURL + dish.image} alt={dish.name}/>
-            <CardBody>
-                <CardTitle heading>{dish.name}</CardTitle>
-                <CardText>{dish.description}</CardText>
-            </CardBody>
+            <Fade in>
+                <CardImg width="100%" object src={baseURL + dish.image} alt={dish.name}/>
+                <CardBody>
+                    <CardTitle heading>{dish.name}</CardTitle>
+                    <CardText>{dish.description}</CardText>
+                </CardBody>
+            </Fade>
         </Card>
     )
 }
@@ -126,21 +129,25 @@ function RenderDishComments({comments, postComment, dishId}) {
             <Card className="col-12 col-md-5 m-1">
                 <CardBody>
                     <CardTitle heading>Comments</CardTitle>
-                    <CardText>
-                        {comments.map((element) => {
-                            const dateString = element.date;
-                            const dateObj = new Date(dateString);
-                            const newDate =
-                                `${dateObj.toLocaleString('en', {month: 'short'})} 
+                        <CardText>
+                            <Stagger in>
+                                {comments.map((element) => {
+                                    const dateString = element.date;
+                                    const dateObj = new Date(dateString);
+                                    const newDate =
+                                        `${dateObj.toLocaleString('en', {month: 'short'})} 
                                                 ${dateObj.getDay()}, ${dateObj.getFullYear()}`;
-                            return (
-                                <div>
-                                    <p>{element.comment}</p>
-                                    <p>-- {element.author}, {newDate}</p>
-                                </div>
-                            )
-                        })}
-                    </CardText>
+                                    return (
+                                        <Fade in>
+                                            <li key={element.id}>
+                                                <p>{element.comment}</p>
+                                                <p>-- {element.author}, {newDate}</p>
+                                            </li>
+                                        </Fade>
+                                    )
+                                })}
+                            </Stagger>
+                        </CardText>
                     <CommentForm dishId={dishId} postComment={postComment}/>
                 </CardBody>
             </Card>
@@ -159,8 +166,7 @@ const DishDetail = (props) => {
                 </div>
             </div>
         );
-    }
-    else if (props.errMess) {
+    } else if (props.errMess) {
         return (
             <div className="container">
                 <div className="row">
@@ -168,8 +174,7 @@ const DishDetail = (props) => {
                 </div>
             </div>
         )
-    }
-    else if (props.dish !== null) {
+    } else if (props.dish !== null) {
         return (
             <div className="container">
                 <div className="row">
