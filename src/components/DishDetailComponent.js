@@ -7,7 +7,7 @@ import React, {Component} from "react";
 import {Control, Errors, LocalForm} from "react-redux-form";
 import {Loading} from "./LoadingComponent";
 import {baseURL} from "../shared/baseURL";
-import {FadeTransform, Fade, Stagger} from 'react-animation-components';
+import {Fade, Stagger} from 'react-animation-components';
 
 const required = (val) => val && val.length;
 const validRating = (val) => val !== "";
