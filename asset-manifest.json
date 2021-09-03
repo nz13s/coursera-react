@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/coursera-react-app-confusion/static/css/main.d921774a.chunk.css",
+    "main.js": "/coursera-react-app-confusion/static/js/main.3e5eda67.chunk.js",
+    "main.js.map": "/coursera-react-app-confusion/static/js/main.3e5eda67.chunk.js.map",
+    "runtime-main.js": "/coursera-react-app-confusion/static/js/runtime-main.6acafb75.js",
+    "runtime-main.js.map": "/coursera-react-app-confusion/static/js/runtime-main.6acafb75.js.map",
+    "static/css/2.6de145ca.chunk.css": "/coursera-react-app-confusion/static/css/2.6de145ca.chunk.css",
+    "static/js/2.246a66e2.chunk.js": "/coursera-react-app-confusion/static/js/2.246a66e2.chunk.js",
+    "static/js/2.246a66e2.chunk.js.map": "/coursera-react-app-confusion/static/js/2.246a66e2.chunk.js.map",
+    "static/js/3.8188ab7c.chunk.js": "/coursera-react-app-confusion/static/js/3.8188ab7c.chunk.js",
+    "static/js/3.8188ab7c.chunk.js.map": "/coursera-react-app-confusion/static/js/3.8188ab7c.chunk.js.map",
+    "index.html": "/coursera-react-app-confusion/index.html",
+    "static/css/2.6de145ca.chunk.css.map": "/coursera-react-app-confusion/static/css/2.6de145ca.chunk.css.map",
+    "static/css/main.d921774a.chunk.css.map": "/coursera-react-app-confusion/static/css/main.d921774a.chunk.css.map",
+    "static/js/2.246a66e2.chunk.js.LICENSE.txt": "/coursera-react-app-confusion/static/js/2.246a66e2.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/coursera-react-app-confusion/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/logo.23118273.png": "/coursera-react-app-confusion/static/media/logo.23118273.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6acafb75.js",
+    "static/css/2.6de145ca.chunk.css",
+    "static/js/2.246a66e2.chunk.js",
+    "static/css/main.d921774a.chunk.css",
+    "static/js/main.3e5eda67.chunk.js"
+  ]
+}
